@@ -56,6 +56,7 @@ var Layout = function () {
 
     // handle carousel
     var handleCarousel = function() {
+    /*
         var $item = $('.carousel .item'); 
         var $wHeight = $(window).height();
         $item.eq(0).addClass('active');
@@ -75,8 +76,50 @@ var Layout = function () {
         $(window).on('resize', function (){
             $wHeight = $(window).height();
             $item.height($wHeight);
+        });*/
+        
+        //adjust to screen width
+        
+        var $item = $('.carousel .item');
+        var $wWidth = $(window).width();
+        $item.eq(0).addClass('active');
+        $item.width($wWidth);
+        $item.addClass('full-screen');
+        var $bgHeight;
+        var $bgWidth;
+        var $src;
+
+        $('.carousel img').each(function() {
+            $src = $(this).attr('src');
+            var $color = $(this).attr('data-color');
+            $(this).parent().css({
+                'background-image' : 'url(' + $src + ')',
+                'background-color' : $color
+            });
         });
+        
+        var img = new Image();
+
+        img.onload = function(){
+          $bgHeight = img.height;
+          $bgWidth = img.width;
+        }
+
+        img.src = $src;
+
+        var $wHeight=$wWidth*1.00/$bgWidth*$bgHeight
+        $item.height($wHeight);
+        
+        $(window).on('resize', function (){
+            $wWidth = $(window).width();
+            $wHeight=$wWidth*1.00/$bgWidth*$bgHeight
+            $item.height($wHeight);
+            $item.width($wWidth);
+        });
+
     }
+    
+    
 
     // handle group element heights
     var handleHeight = function() {
