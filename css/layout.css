@@ -553,7 +553,6 @@ fieldset[disabled] .btn-theme {
 /* Fixed Top */
 .navbar-fixed-top .navbar-collapse {
   max-height: 100%;
-  /*position: absolute;*/ /*added*/
 }
 
 /* Navbar */
@@ -991,7 +990,6 @@ fieldset[disabled] .btn-theme {
 ------------------------------------------------------------------*/
 .full-screen {
   background-size: cover;
-  /*background-size: contain;*/ /*added*/
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -1000,10 +998,8 @@ fieldset[disabled] .btn-theme {
     [Carousel]
 ------------------------------------------------------------------*/
 .carousel-indicators {
-  /*position: absolute;*/ /*added*/
   left: auto;
   width: auto;
-  /*height: auto;*/ /*added*/
   padding-left: 0;
   margin-left: 0;
 }
